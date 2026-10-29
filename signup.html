@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | Danny Hub</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Cambria, Georgia, serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #eaf3ff, #ffffff);
+            padding: 20px;
+        }
+
+        .signup-container {
+            width: 100%;
+            max-width: 440px;
+            background: #ffffff;
+            padding: 35px 28px;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(37, 99, 235, 0.15);
+            border: 1px solid #dbeafe;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 15px;
+            margin-bottom: 28px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1e293b;
+            font-size: 27px;
+            margin-bottom: 8px;
+        }
+
+        .welcome {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 19px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1e293b;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            color: #1e293b;
+            background: #ffffff;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            padding-right: 65px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #2563eb;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin: 5px 0 22px;
+            color: #475569;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .terms input {
+            margin-top: 4px;
+            accent-color: #2563eb;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 15px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .signup-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .message {
+            display: none;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .signin-text {
+            text-align: center;
+            color: #64748b;
+            font-size: 15px;
+            margin-top: 24px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 12px;
+            margin-top: 28px;
+        }
+
+        @media (max-width: 380px) {
+            .signup-container {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="signup-container">
+
+        <div class="logo">DANNY HUB</div>
+
+        <p class="subtitle">Your Digital Services Partner</p>
+
+        <h2>Create Account</h2>
+
+        <p class="welcome">
+            Join Danny Hub and get started today.
+        </p>
+
+        <div
+            id="message"
+            class="message"
+            role="status"
+            aria-live="polite"
+        ></div>
+
+        <form id="signupForm">
+
+            <div class="input-group">
+                <label for="fullname">Full Name</label>
+
+                <input
+                    type="text"
+                    id="fullname"
+                    name="fullname"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    maxlength="100"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="password">Create Password</label>
+
+                <div class="password-wrapper">
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a strong password"
+                        autocomplete="new-password"
+                        minlength="8"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="toggle-password"
+                        id="togglePassword"
+                    >Show</button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="confirmPassword">Confirm Password</label>
+
+                <div class="password-wrapper">
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Enter your password again"
+                        autocomplete="new-password"
+                        minlength="8"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="toggle-password"
+                        id="toggleConfirmPassword"
+                    >Show</button>
+                </div>
+            </div>
+
+            <label class="terms">
+                <input type="checkbox" id="terms" required>
+
+                <span>
+                    I agree to the
+                    <a href="terms.html">Terms and Conditions</a>
+                    and
+                    <a href="privacy.html">Privacy Policy</a>.
+                </span>
+            </label>
+
+            <button type="submit" class="signup-btn">
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="signin-text">
+            Already have an account?
+            <a href="login.html">Sign In</a>
+        </p>
+
+        <div class="footer">
+            &copy; 2026 Danny Hub. All rights reserved.
+        </div>
+
+    </main>
+
+    <script>
+        const signupForm = document.getElementById("signupForm");
+        const password = document.getElementById("password");
+        const confirmPassword =
+            document.getElementById("confirmPassword");
+        const message = document.getElementById("message");
+
+        function toggleVisibility(inputId, buttonId) {
+            const input = document.getElementById(inputId);
+            const button = document.getElementById(buttonId);
+
+            button.addEventListener("click", function () {
+                const hidden = input.type === "password";
+
+                input.type = hidden ? "text" : "password";
+                button.textContent = hidden ? "Hide" : "Show";
+            });
+        }
+
+        toggleVisibility("password", "togglePassword");
+
+        toggleVisibility(
+            "confirmPassword",
+            "toggleConfirmPassword"
+        );
+
+        signupForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            message.style.display = "block";
+
+            if (password.value !== confirmPassword.value) {
+                message.style.background = "#fef2f2";
+                message.style.color = "#b91c1c";
+                message.textContent =
+                    "Your passwords do not match. Please check them and try again.";
+
+                confirmPassword.focus();
+                return;
+            }
+
+            if (password.value.length < 8) {
+                message.style.background = "#fef2f2";
+                message.style.color = "#b91c1c";
+                message.textContent =
+                    "Your password must contain at least 8 characters.";
+                return;
+            }
+
+            message.style.background = "#eff6ff";
+            message.style.color = "#1d4ed8";
+            message.textContent =
+                "Your sign-up page is ready, but account creation has not been connected to an authentication service yet.";
+        });
+    </script>
+
+</body>
+</html>
